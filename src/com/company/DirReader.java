@@ -1,7 +1,7 @@
 package com.company;
 
 import java.nio.file.*;
-
+//DiRReader Class
 public class DirReader {
 
     public DirReader (){
@@ -12,7 +12,7 @@ public class DirReader {
 
         try {
 
-            Files.walk(Paths.get(".")).forEach(filePath -> {
+            Files.walk(Paths.get("C:\\Program Files (x86)\\World of Warcraft\\Screenshots")).forEach(filePath -> {
                 if (Files.isRegularFile(filePath)) {
                     System.out.println(filePath);
                 }
