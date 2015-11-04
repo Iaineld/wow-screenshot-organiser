@@ -1,27 +1,30 @@
+
 package com.company;
 
 import java.nio.file.*;
+import java.io.File;
 //DiRReader Class
 public class DirReader {
 
-    public DirReader (){
+    private String dirPath;
 
+    public DirReader (String directoryPath){
+        this.dirPath = directoryPath;
     }
 
     public void readDir () {
+        File folder = new File(this.dirPath);
 
-        try {
+        File[] listOfFiles = folder.listFiles();
 
-            Files.walk(Paths.get("C:\\Program Files (x86)\\World of Warcraft\\Screenshots")).forEach(filePath -> {
-                if (Files.isRegularFile(filePath)) {
-                    System.out.println(filePath);
-                }
-            });
+        for (int i = 0; i < listOfFiles.length; i++){
 
-        } catch (Exception err) {
-            System.out.println(err);
+            File newFile = listOfFiles[i];
+            System.out.println(newFile.getName());
+
         }
 
-
+        
     }
+
 }
